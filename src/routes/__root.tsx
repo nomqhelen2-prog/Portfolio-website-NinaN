@@ -77,11 +77,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Nomqhele — Frontend Developer & Interface Designer" },
+      {
+        name: "description",
+        content:
+          "A digital development practice building refined, responsive websites and web apps with React and TypeScript.",
+      },
+      { name: "author", content: "Nomqhele" },
+      { property: "og:title", content: "Nomqhele — Frontend Developer & Interface Designer" },
+      {
+        property: "og:description",
+        content:
+          "Refined, responsive websites and web applications built with React, TypeScript and modern web standards.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
