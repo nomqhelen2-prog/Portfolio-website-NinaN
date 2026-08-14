@@ -19,6 +19,11 @@
  */
 
 @theme inline {
+  --color-blush: var(--blush);
+  --color-champagne: var(--champagne);
+  --color-ink: var(--ink);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -62,26 +67,40 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --radius: 0.25rem;
+  --background: oklch(0.982 0.008 60);
+  --foreground: oklch(0.26 0.045 340);
+  --card: oklch(0.995 0.005 70);
+  --card-foreground: oklch(0.26 0.045 340);
+  --popover: oklch(0.995 0.005 70);
+  --popover-foreground: oklch(0.26 0.045 340);
+  --primary: oklch(0.34 0.075 345);
+  --primary-foreground: oklch(0.985 0.008 70);
+  --secondary: oklch(0.945 0.018 40);
+  --secondary-foreground: oklch(0.34 0.075 345);
+  --muted: oklch(0.952 0.014 50);
+  --muted-foreground: oklch(0.52 0.03 340);
+  --accent: oklch(0.78 0.075 40);
+  --accent-foreground: oklch(0.26 0.045 340);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.89 0.018 45);
+  --input: oklch(0.89 0.018 45);
+  --ring: oklch(0.72 0.06 20);
+  --blush: oklch(0.925 0.028 25);
+  --champagne: oklch(0.9 0.035 75);
+  --ink: oklch(0.24 0.04 340);
+  --gradient-veil: linear-gradient(
+    160deg,
+    oklch(0.982 0.008 60) 0%,
+    oklch(0.955 0.024 30) 55%,
+    oklch(0.94 0.03 60) 100%
+  );
+  --shadow-soft: 0 24px 60px -30px oklch(0.34 0.075 345 / 0.28);
+  --shadow-lift: 0 32px 80px -40px oklch(0.34 0.075 345 / 0.35);
+  --tracking-label: 0.28em;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Karla", system-ui, sans-serif;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
