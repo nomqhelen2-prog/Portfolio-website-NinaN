@@ -95,13 +95,13 @@ function Index() {
             Nomqhele<span className="text-accent">.</span>
           </a>
           <nav className="hidden items-center gap-10 md:flex">
-            <a href="#services" className="label-caps transition-colors hover:text-primary">
+            <a href="#services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               Services
             </a>
-            <a href="#work" className="label-caps transition-colors hover:text-primary">
+            <a href="#work" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               Work
             </a>
-            <a href="#about" className="label-caps transition-colors hover:text-primary">
+            <a href="#about" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               About
             </a>
           </nav>
