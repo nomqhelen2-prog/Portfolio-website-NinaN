@@ -91,8 +91,8 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
-          <a href="#top" className="font-display text-xl tracking-[0.18em] uppercase">
-            Nomqhele
+          <a href="#top" className="font-display text-xl font-bold tracking-tight">
+            Nomqhele<span className="text-accent">.</span>
           </a>
           <nav className="hidden items-center gap-10 md:flex">
             <a href="#services" className="label-caps transition-colors hover:text-primary">
@@ -107,7 +107,7 @@ function Index() {
           </nav>
           <a
             href="#contact"
-            className="border border-primary px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+            className="rounded-full border border-foreground px-6 py-2.5 text-sm font-medium transition-colors hover:bg-foreground hover:text-primary-foreground"
           >
             Enquire
           </a>
@@ -119,9 +119,11 @@ function Index() {
           <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 py-24 md:grid-cols-[1.05fr_0.95fr] md:py-32">
             <div className="animate-fade-in">
               <p className="label-caps">Digital development practice</p>
-              <h1 className="mt-8 text-5xl leading-[1.05] text-ink md:text-7xl">
-                Considered websites,
-                <span className="block italic text-primary">carefully engineered.</span>
+              <h1 className="mt-8 text-5xl leading-[1.03] text-ink md:text-6xl">
+                Built with Craft.
+                <span className="block">
+                  Engineered with <span className="text-accent">Care</span>.
+                </span>
               </h1>
               <p className="mt-8 max-w-md text-[1.0625rem] leading-relaxed text-muted-foreground">
                 I build fast, accessible and visually compelling web presence for brands, agencies
@@ -130,11 +132,11 @@ function Index() {
               <div className="mt-10 flex flex-wrap items-center gap-8">
                 <a
                   href="#work"
-                  className="bg-primary px-8 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-primary-foreground shadow-[var(--shadow-soft)] transition-opacity hover:opacity-90"
+                  className="rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85"
                 >
                   View selected work
                 </a>
-                <span className="flex items-center gap-3 text-xs tracking-[0.14em] uppercase text-muted-foreground">
+                <span className="flex items-center gap-3 text-sm text-muted-foreground">
                   <span className="size-1.5 rounded-full bg-accent" />
                   Currently taking new projects
                 </span>
@@ -148,9 +150,9 @@ function Index() {
                 height={1408}
                 className="h-[30rem] w-full object-cover shadow-[var(--shadow-lift)] md:h-[34rem]"
               />
-              <div className="absolute -bottom-6 -left-6 hidden bg-card px-8 py-6 shadow-[var(--shadow-soft)] md:block">
+              <div className="absolute -bottom-6 -left-6 hidden border border-border bg-card px-8 py-6 shadow-[var(--shadow-soft)] md:block">
                 <p className="label-caps">Built with</p>
-                <p className="mt-2 font-display text-2xl">React · TypeScript</p>
+                <p className="mt-2 font-display text-xl font-semibold">React · TypeScript</p>
               </div>
             </div>
           </div>
@@ -173,7 +175,9 @@ function Index() {
                 key={service.index}
                 className="group bg-background p-10 transition-colors hover:bg-secondary/60"
               >
-                <span className="font-display text-2xl italic text-accent">{service.index}</span>
+                <span className="font-display text-sm font-semibold tracking-[0.2em] text-accent">
+                  {service.index}
+                </span>
                 <h3 className="mt-6 text-2xl text-ink">{service.title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{service.body}</p>
                 <div className="mt-8 flex flex-wrap gap-2">
@@ -217,7 +221,9 @@ function Index() {
                   <div>
                     <p className="label-caps">{project.index}</p>
                     <h3 className="mt-5 text-3xl text-ink md:text-4xl">{project.title}</h3>
-                    <p className="mt-3 font-display text-lg italic text-primary">{project.role}</p>
+                    <p className="mt-3 text-sm font-semibold uppercase tracking-[0.16em] text-accent">
+                      {project.role}
+                    </p>
                     <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
                       {project.body}
                     </p>
@@ -243,7 +249,7 @@ function Index() {
             <div>
               <p className="label-caps">Philosophy</p>
               <h2 className="mt-5 text-4xl leading-tight md:text-5xl">
-                Detail is the <span className="italic text-primary">whole</span> of it.
+                Detail is the <span className="text-accent">whole</span> of it.
               </h2>
             </div>
             <div className="space-y-6 text-[1.0625rem] leading-relaxed text-muted-foreground">
@@ -278,7 +284,7 @@ function Index() {
             </h2>
             <a
               href="mailto:hello@nomqhele.dev"
-              className="mt-12 inline-block border-b border-primary pb-2 font-display text-2xl text-primary transition-opacity hover:opacity-70 md:text-3xl"
+              className="mt-12 inline-block border-b-2 border-accent pb-2 font-display text-2xl font-semibold transition-colors hover:text-accent md:text-3xl"
             >
               hello@nomqhele.dev
             </a>
@@ -290,10 +296,10 @@ function Index() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-10 text-[10px] uppercase tracking-[0.22em] text-muted-foreground sm:flex-row">
           <span>© {new Date().getFullYear()} Nomqhele</span>
           <div className="flex gap-8">
-            <a href="#" className="transition-colors hover:text-primary">
+            <a href="#" className="transition-colors hover:text-accent">
               GitHub
             </a>
-            <a href="#" className="transition-colors hover:text-primary">
+            <a href="#" className="transition-colors hover:text-accent">
               LinkedIn
             </a>
           </div>
