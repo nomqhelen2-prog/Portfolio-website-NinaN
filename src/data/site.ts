@@ -1,7 +1,3 @@
-import workOne from "@/assets/work-one.jpg";
-import workTwo from "@/assets/work-two.jpg";
-import workThree from "@/assets/work-three.jpg";
-
 export const services = [
   {
     index: "01",
@@ -29,36 +25,46 @@ export const services = [
   },
 ];
 
+// Live, shipped client sites. `url` is the deployed site so visitors can click
+// through and see the real, working project — not a mockup.
 export const projects = [
   {
     index: "Project 01",
-    title: "Aurelia Studio",
+    title: "OnCue Marketing",
     role: "Design & Build",
-    body: "A brand-led marketing site for a boutique design studio, with an editorial layout and sub-second first paint.",
+    body: "A marketing site for an experiential and promotional marketing agency — brand activations, product launches and promotional staffing across South Africa.",
     stack: ["React", "Vite", "Tailwind"],
-    image: workOne,
+    url: "https://oncuemarketing.co.za",
   },
   {
     index: "Project 02",
-    title: "Atelier Commerce",
-    role: "Frontend Lead",
-    body: "A mobile-first shopping experience with a curated browsing flow and an accessible, touch-friendly interface.",
-    stack: ["TypeScript", "React", "REST"],
-    image: workTwo,
+    title: "The Drinks Masters SA",
+    role: "Design & Build",
+    body: "A site for a luxury mobile bar company — signature cocktails, premium coffee bars and bespoke beverage activations for weddings, corporate events and brand launches.",
+    stack: ["React", "Vite", "Tailwind"],
+    url: "https://thedrinksmasterssa.co.za",
   },
   {
     index: "Project 03",
-    title: "Insight Dashboard",
-    role: "Full Build",
-    body: "A reporting dashboard translating dense analytics into calm, legible visuals for non-technical teams.",
-    stack: ["React", "Charts", "Node.js"],
-    image: workThree,
+    title: "Pipe Pioneers Infra",
+    role: "Design & Build",
+    body: "A site for a piping and infrastructure services company, built to present their project capabilities clearly to prospective clients.",
+    stack: ["React", "Vite", "Tailwind"],
+    url: "https://pipepioneersinfra.com",
+  },
+  {
+    index: "Project 04",
+    title: "Mthunzi Project Consultants",
+    role: "Design & Build",
+    body: "A site for a construction project management firm — protecting client interests through expert oversight of every build.",
+    stack: ["React", "Vite", "Tailwind"],
+    url: "https://mthunziprojectconsultants.com",
   },
 ];
 
 export const stack = [
   { label: "Languages", value: "JavaScript (ES6+), TypeScript, HTML5, CSS3, Python" },
   { label: "Frameworks", value: "React, Vite, Node.js" },
-  { label: "Workflow", value: "Git, GitHub, Vercel, cross-browser testing" },
+  { label: "Workflow", value: "Git, cross-browser testing, responsive QA" },
   { label: "Principles", value: "Responsive design, accessibility, clean code" },
 ];

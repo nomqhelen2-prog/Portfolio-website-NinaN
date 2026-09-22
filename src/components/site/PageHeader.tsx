@@ -8,15 +8,11 @@ export function PageHeader({
   intro?: string;
 }) {
   return (
-    <section className="veil border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-        <p className="label-caps">{eyebrow}</p>
-        <h1 className="mt-6 max-w-3xl text-4xl leading-[1.05] text-ink md:text-6xl">{title}</h1>
-        {intro ? (
-          <p className="mt-8 max-w-xl text-[1.0625rem] leading-relaxed text-muted-foreground">
-            {intro}
-          </p>
-        ) : null}
+    <section className="border-b bg-secondary/40">
+      <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+        <p className="text-sm font-semibold text-primary">{eyebrow}</p>
+        <h1 className="mt-3 max-w-2xl text-3xl font-bold md:text-5xl">{title}</h1>
+        {intro ? <p className="mt-4 max-w-xl text-muted-foreground">{intro}</p> : null}
       </div>
     </section>
   );

@@ -1,54 +1,49 @@
-# Pixel Perfect Projects
+# Couravent Portfolio
 
-Company Profile
+A personal portfolio website — built with React, TypeScript, Vite and Tailwind CSS. No backend, no server rendering: a static single-page app you can deploy anywhere that serves static files (Vercel, Netlify, Cloudflare Pages, GitHub Pages).
 
-1. Business Overview
+## Stack
 
-We are a dynamic digital development practice focused on delivering high-quality, responsive web solutions for clients, agencies, and small businesses. Specializing in modern interface design and clean code execution, we bridge the gap between creative visual branding and reliable web functionality. Whether it is building sleek promotional landing pages, dynamic agency web applications, or custom digital touchpoints, we turn concepts into polished, production-ready websites.
-
-2. Mission & Philosophy
-
-Our mission is to empower businesses and local brands with fast, accessible, and visually compelling web presence. We believe in continuous learning, rigorous attention to detail, and transparent collaboration. By combining academic computer science foundations with hands-on development experience, we ensure every project is built using modern, sustainable web standards.
-
-3. Core Services
-
-Frontend & UI Development: Building responsive, mobile-friendly interfaces using React, TypeScript, and modern CSS frameworks that look exceptional on any screen size.
-
-Landing Page & Portfolio Design: Designing high-impact, conversion-focused landing sites optimized for fast loading speeds and smooth user engagement.
-
-Dynamic Web Applications: Developing interactive web projects, client prototypes, and custom digital tools (such as agency deliverables and specialized web applications).
-
-Version Control & Deployment: Managing code repositories with Git and executing seamless, reliable deployments via modern hosting platforms like Vercel.
-
-4. Technical Expertise & Tools
-
-Languages & Core: JavaScript (ES6+), TypeScript, HTML5, CSS3, Python.
-
-Frameworks & Libraries: React, Vite, Node.js (foundational).
-
-Workflow & Infrastructure: Git, GitHub, Vercel, responsive design principles, and cross-browser testing.
-
-i have a website i need, a portfolio website, im thinking it should look very modern and futuristic, its also needs to be techy and professional
-
-heres inspo.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/da507fcf-a781-442c-bed7-1d1ba1ed5ef6).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+- [React 19](https://react.dev) + [React Router](https://reactrouter.com) for client-side routing
+- [TypeScript](https://www.typescriptlang.org)
+- [Vite](https://vite.dev) for the dev server and build
+- [Tailwind CSS v4](https://tailwindcss.com) + [shadcn/ui](https://ui.shadcn.com)-style components
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You need Node.js installed — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+The dev server runs at `http://localhost:5173` by default.
+
+## Build
+
+```sh
+npm run build
+```
+
+Outputs a static site to `dist/`. Preview the production build locally with:
+
+```sh
+npm run preview
+```
+
+## Project structure
+
+```
+src/
+  App.tsx               # route definitions
+  main.tsx               # entry point
+  pages/                 # one file per route (Home, About, Services, Projects, Contact)
+  components/site/       # header, footer, layout, shared page pieces
+  components/ui/         # shadcn/ui primitives
+  data/site.ts            # services + project content shown on the site
+```
+
+## Editing content
+
+Update the projects, services and stack shown on the site in `src/data/site.ts`.
