@@ -1,60 +1,50 @@
-import { ArrowUpRight } from "lucide-react";
-import { NavLink } from "react-router-dom";
-
 import { Button } from "@/components/ui/button";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
-import { TopBar } from "./TopBar";
-
+// "Experience" is shelved along with its section (see App.tsx) until the
+// church mobile app is deployed — add it back here once that's live.
 const nav = [
-  { to: "/", label: "Home", end: true },
-  { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/projects", label: "Projects" },
-  { to: "/contact", label: "Contact" },
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About Me" },
+  { href: "#services", label: "Services" },
+  { href: "#projects", label: "Portfolio" },
+  { href: "#contact", label: "Contact Me" },
 ] as const;
 
+const sectionIds = nav.map((item) => item.href.slice(1));
+
 export function SiteHeader() {
+  const activeId = useActiveSection(sectionIds);
+
   return (
-    <>
-      <TopBar />
-      <header className="sticky top-0 z-40 border-b bg-background">
-        <div className="mx-auto flex h-20 max-w-5xl items-center justify-between px-6">
-          <NavLink to="/" className="shrink-0 text-base font-bold sm:text-lg">
-            Nomqhele N Moyo
-          </NavLink>
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-black/95 text-white backdrop-blur">
+      <div className="mx-auto flex h-20 max-w-5xl items-center justify-between px-6">
+        <a href="#home" className="shrink-0 text-lg font-bold tracking-wide text-white">
+          NM
+        </a>
 
-          <nav className="hidden flex-1 items-center justify-center gap-8 md:flex">
-            {nav.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={"end" in item ? item.end : false}
-                className={({ isActive }) =>
-                  `text-sm font-medium transition-colors hover:text-foreground ${
-                    isActive ? "text-primary" : "text-foreground/70"
-                  }`
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
-          </nav>
-
-          <div className="flex shrink-0 items-center gap-5">
-            <NavLink
-              to="/contact"
-              className="hidden text-sm font-medium underline underline-offset-4 hover:text-primary sm:inline"
+        <nav className="hidden flex-1 items-center justify-center gap-8 md:flex">
+          {nav.slice(0, -1).map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className={`text-sm font-medium transition-colors hover:text-white ${
+                activeId === item.href.slice(1) ? "text-white" : "text-white/60"
+              }`}
             >
-              Get in Touch
-            </NavLink>
-            <Button asChild size="icon" className="rounded-full">
-              <NavLink to="/contact" aria-label="Get in touch">
-                <ArrowUpRight />
-              </NavLink>
-            </Button>
-          </div>
-        </div>
-      </header>
-    </>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <Button
+          asChild
+          size="sm"
+          className="shrink-0 rounded-full bg-white px-5 text-black hover:bg-white/90"
+        >
+          <a href="#contact">Contact Me</a>
+        </Button>
+      </div>
+    </header>
   );
 }

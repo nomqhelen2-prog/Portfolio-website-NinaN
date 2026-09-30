@@ -1,10 +1,10 @@
-# Couravent Portfolio
+# Portfolio Website
 
-A personal portfolio website — built with React, TypeScript, Vite and Tailwind CSS. No backend, no server rendering: a static single-page app you can deploy anywhere that serves static files (Vercel, Netlify, Cloudflare Pages, GitHub Pages).
+A personal portfolio website — one scrolling page (hero, about, services, projects, contact) built with React, TypeScript, Vite and Tailwind CSS. No backend, no server rendering, no routing: a static site you can deploy anywhere that serves static files (Vercel, Netlify, Cloudflare Pages, GitHub Pages).
 
 ## Stack
 
-- [React 19](https://react.dev) + [React Router](https://reactrouter.com) for client-side routing
+- [React 19](https://react.dev)
 - [TypeScript](https://www.typescriptlang.org)
 - [Vite](https://vite.dev) for the dev server and build
 - [Tailwind CSS v4](https://tailwindcss.com) + [shadcn/ui](https://ui.shadcn.com)-style components
@@ -36,10 +36,10 @@ npm run preview
 
 ```
 src/
-  App.tsx               # route definitions
+  App.tsx               # composes the page out of the sections below
   main.tsx               # entry point
-  pages/                 # one file per route (Home, About, Services, Projects, Contact)
-  components/site/       # header, footer, layout, shared page pieces
+  sections/               # one file per section (Hero, About, Services, Projects, Contact)
+  components/site/       # header, footer, project card
   components/ui/         # shadcn/ui primitives
   data/site.ts            # services + project content shown on the site
 ```

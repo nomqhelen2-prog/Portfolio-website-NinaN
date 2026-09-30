@@ -5,11 +5,12 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Corporate blue/white theme — a clean white page background with dark
- * slate-navy text, a confident royal blue as the primary accent (nav
- * highlights, CTAs, full-bleed statement banners), and a soft light-blue
- * tint as the secondary surface tone for alternating section bands,
- * badges and secondary buttons. Single theme, no dark mode.
+ * Monochrome theme — a crisp white canvas with near-black text, modelled on
+ * The Ordinary's site: pure black/white/gray only, no color accent. The
+ * site header, footer and floating dock are hardcoded black (see their
+ * components) since they stay black regardless of section background;
+ * everything else runs off these tokens. Alternating sections use a very
+ * light gray panel. Single theme, no dark mode toggle.
  */
 
 @theme inline {
@@ -55,49 +56,52 @@
 }
 
 :root {
-  /* Square shapes — no corner rounding across cards, buttons, badges or tiles. */
   --radius: 0rem;
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-serif: Georgia, "Times New Roman", serif;
 
   --background: #ffffff;
-  --foreground: #111827;
-  --card: #ffffff;
-  --card-foreground: #111827;
+  --foreground: #111111;
+  --card: #f7f7f7;
+  --card-foreground: #111111;
   --popover: #ffffff;
-  --popover-foreground: #111827;
-  --primary: #1d4595;
+  --popover-foreground: #111111;
+  --primary: #111111;
   --primary-foreground: #ffffff;
-  --secondary: #eef2f9;
-  --secondary-foreground: #1d4595;
-  --muted: #f5f6f8;
-  --muted-foreground: #64748b;
-  --accent: rgba(29, 69, 149, 0.08);
-  --accent-foreground: #111827;
-  --destructive: #dc2626;
+  --secondary: #f0f0f0;
+  --secondary-foreground: #111111;
+  --muted: #f0f0f0;
+  --muted-foreground: #6b6b6b;
+  --accent: rgba(0, 0, 0, 0.06);
+  --accent-foreground: #111111;
+  --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e2e6ee;
-  --input: #dde2ec;
-  --ring: #1d4595;
+  --border: rgba(0, 0, 0, 0.12);
+  --input: rgba(0, 0, 0, 0.16);
+  --ring: #111111;
 
-  --chart-1: #1d4595;
-  --chart-2: #3b6bc7;
-  --chart-3: #93b4e6;
-  --chart-4: #64748b;
-  --chart-5: #1e293b;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #111827;
-  --sidebar-primary: #1d4595;
+  --chart-1: #111111;
+  --chart-2: #3f3f3f;
+  --chart-3: #6b6b6b;
+  --chart-4: #a3a3a3;
+  --chart-5: #d4d4d4;
+  --sidebar: #f7f7f7;
+  --sidebar-foreground: #111111;
+  --sidebar-primary: #111111;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #eef2f9;
-  --sidebar-accent-foreground: #1d4595;
-  --sidebar-border: #e2e6ee;
-  --sidebar-ring: #1d4595;
+  --sidebar-accent: #f0f0f0;
+  --sidebar-accent-foreground: #111111;
+  --sidebar-border: rgba(0, 0, 0, 0.12);
+  --sidebar-ring: #111111;
 }
 
 @layer base {
   * {
     border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
@@ -106,15 +110,6 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
-    /* Just a whisper of blue at the top of the page — enough to keep a
-       pure-white canvas from feeling flat. Fixed so it doesn't scroll. */
-    background-image: radial-gradient(
-      1200px 600px at 50% -10%,
-      rgba(29, 69, 149, 0.06),
-      transparent 60%
-    );
-    background-attachment: fixed;
-    background-repeat: no-repeat;
   }
 
   h1,

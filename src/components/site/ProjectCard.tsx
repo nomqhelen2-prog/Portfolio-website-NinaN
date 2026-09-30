@@ -8,14 +8,17 @@ type Project = {
   body: string;
   stack: string[];
   url: string;
+  image?: string;
 };
 
-// Brand blue and a soft blue-tinted white, cycled by index.
+// Near-black and light gray, cycled by index — used for the browser chrome
+// bar, and as the full fallback tile for any project that doesn't have a
+// real screenshot yet.
 const TILE_COLORS = ["bg-primary", "bg-secondary"];
 const TILE_TEXT_COLORS = ["text-primary-foreground", "text-secondary-foreground"];
 
-// An icon that nods at each client's industry, so the preview reads as more
-// than a placeholder. Falls back to a generic globe.
+// An icon that nods at each client's industry, shown on the fallback tile.
+// Falls back to a generic globe.
 const TILE_ICONS: Record<string, LucideIcon> = {
   "OnCue Marketing": Megaphone,
   "The Drinks Masters SA": Martini,
@@ -31,10 +34,9 @@ function hostname(url: string) {
   }
 }
 
-// A big browser-style preview (chrome bar + a stylised page layout in the
-// client's brand color) followed by a compact name / url / link footer —
-// no real screenshot is available, so this stands in for one honestly
-// rather than faking a photographic capture.
+// A browser-style preview — chrome bar up top, then either a real screenshot
+// of the live site or (when one isn't available) a stylised placeholder in
+// the client's brand color — followed by a compact name / url / link footer.
 export function ProjectCard({ project, i = 0 }: { project: Project; i?: number }) {
   const color = TILE_COLORS[i % TILE_COLORS.length];
   const text = TILE_TEXT_COLORS[i % TILE_TEXT_COLORS.length];
@@ -46,10 +48,10 @@ export function ProjectCard({ project, i = 0 }: { project: Project; i?: number }
       href={project.url}
       target="_blank"
       rel="noreferrer noopener"
-      className="group block overflow-hidden border bg-card shadow-md shadow-slate-900/10 transition-shadow hover:shadow-lg"
+      className="group block overflow-hidden border border-border bg-card shadow-md shadow-black/20 transition-all hover:border-primary/60 hover:shadow-lg hover:shadow-primary/10"
       aria-label={`Visit the live ${project.title} site`}
     >
-      <div className={`relative aspect-[4/3.1] w-full overflow-hidden ${color} ${text}`}>
+      <div className={`relative aspect-[2/1] w-full overflow-hidden ${color} ${text}`}>
         <div className="relative z-10 flex items-center gap-3 border-b border-current/15 px-4 py-2.5">
           <div className="flex gap-1.5">
             <span className="h-2 w-2 rounded-full bg-current/40" />
@@ -59,33 +61,46 @@ export function ProjectCard({ project, i = 0 }: { project: Project; i?: number }
           <span className="truncate bg-current/10 px-2 py-0.5 text-[11px] opacity-80">{host}</span>
         </div>
 
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
-            backgroundSize: "18px 18px",
-          }}
-        />
-        <div className="absolute -right-10 -top-6 h-40 w-40 rounded-full bg-current/10 blur-3xl" />
+        {project.image ? (
+          <div className="h-[calc(100%-2.6rem)] w-full overflow-hidden bg-muted">
+            <img
+              src={project.image}
+              alt={`Screenshot of the ${project.title} website`}
+              loading="lazy"
+              className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+          </div>
+        ) : (
+          <>
+            <div
+              className="absolute inset-0 opacity-[0.07]"
+              style={{
+                backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
+                backgroundSize: "18px 18px",
+              }}
+            />
+            <div className="absolute -right-10 -top-6 h-40 w-40 rounded-full bg-current/10 blur-3xl" />
 
-        <div className="relative flex h-[calc(100%-2.6rem)] flex-col justify-center gap-4 px-6">
-          <div className="flex items-center justify-between">
-            <span className="flex h-8 w-8 items-center justify-center bg-current/15">
-              <Icon className="h-4 w-4" />
-            </span>
-            <div className="flex gap-2">
-              <span className="h-1.5 w-7 bg-current/25" />
-              <span className="h-1.5 w-7 bg-current/25" />
-              <span className="h-1.5 w-7 bg-current/25" />
+            <div className="relative flex h-[calc(100%-2.6rem)] flex-col justify-center gap-4 px-6">
+              <div className="flex items-center justify-between">
+                <span className="flex h-8 w-8 items-center justify-center bg-current/15">
+                  <Icon className="h-4 w-4" />
+                </span>
+                <div className="flex gap-2">
+                  <span className="h-1.5 w-7 bg-current/25" />
+                  <span className="h-1.5 w-7 bg-current/25" />
+                  <span className="h-1.5 w-7 bg-current/25" />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <span className="h-3 w-2/3 bg-current/50" />
+                <span className="h-3 w-1/2 bg-current/30" />
+                <span className="mt-2 h-6 w-28 bg-current/90" />
+              </div>
             </div>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <span className="h-3 w-2/3 bg-current/50" />
-            <span className="h-3 w-1/2 bg-current/30" />
-            <span className="mt-2 h-6 w-28 bg-current/90" />
-          </div>
-        </div>
+          </>
+        )}
       </div>
 
       <div className="flex items-center justify-between gap-4 px-5 py-4">

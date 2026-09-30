@@ -3,8 +3,9 @@ import { Component, type ErrorInfo, type ReactNode } from "react";
 type Props = { children: ReactNode };
 type State = { error: Error | null };
 
-// Plain React error boundary — replaces TanStack Start's server-rendered
-// error page and the Lovable telemetry hook now that this is a static SPA.
+// Plain React error boundary for this static single-page app: catches
+// render errors anywhere below it and shows a simple fallback instead of a
+// blank page.
 export class ErrorBoundary extends Component<Props, State> {
   override state: State = { error: null };
 
